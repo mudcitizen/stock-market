@@ -8,30 +8,25 @@ import { Stock } from "../../model/stock.model";
 })
 export class StockItemComponent implements OnInit {
 
-  public stock: Stock;
-  private _stockStyles;
-    public get stockStyles() {
-        return this._stockStyles;
-    }
-    public set stockStyles(value) {
-        this._stockStyles = value;
-    }
-  
+  public stocks: Array<Stock>;
+
   constructor() { }
 
   ngOnInit() {
-    this.stock = new Stock("Test Stock", "TSC", 85, 60);
-    let diff = this.stock.price - this.stock.previousPrice;
-    let largeChange = Math.abs(diff);
-    this.stockStyles = {
-      "color": this.stock.isPositiveChange()  ? "green" : "red",
-      "font-size": (this.stock.isPositiveChange() ? "1.2" : ".8")+"em"
-    }
+    this.stocks = [
+      new Stock("Test Stock", "TSC", 85, 60),
+      new Stock("Second Stock Company", "SSC", 10, 20),
+      new Stock("Last Stock Company", "LSC", 50.99, 69.99),
+    ]
   }
 
-  toggleFavorite(event): void {
-    console.log("We are toggling the favorite state for this stock",event);
-    this.stock.favorite = !this.stock.favorite;
+  toggleFavorite(event, index): void {
+    console.log("We are toggling the favorite state for this stock", event, index);
+    this.stocks[index].favorite = !this.stocks[index].favorite;
+  }
+
+  handleSelection(event): void {
+    console.log("handleSelection() called",event);
   }
 
 }
