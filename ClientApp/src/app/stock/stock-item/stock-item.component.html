@@ -1,6 +1,4 @@
-<div class="stock-container"
-     *ngFor="let stock of stocks;index as i;first as isFirst;last as isLast"
-     [style.border-color]="isFirst ? 'green' : (isLast ? 'red' : 'blue')">
+<div class="stock-container">
   <div class="name">{{stock.name + ' - (' + stock.code +')'}}</div>
   <div class="price"
        [class.positive]="stock.isPositiveChange()">
@@ -12,6 +10,3 @@
   </button>
 </div>
 <br />
-<select (change)="handleSelection($event)">
-    <option value="{{i+1}}" *ngFor="let dummy of ' '.repeat(20).split(''), let i = index">{{i+1}}</option>
-</select>
