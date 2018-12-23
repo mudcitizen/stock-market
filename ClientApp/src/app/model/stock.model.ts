@@ -11,4 +11,8 @@ export class Stock {
     return this.price >= this.previousPrice;
   }
 
+  toString(): string {
+    return `Code: ${this.code} ; Name: ${this.name}; Price: ${this.price} ; PreviousPrice: ${this.previousPrice} ; Favorite: ${this.favorite}`;
+ 
+
 }

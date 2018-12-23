@@ -15,4 +15,9 @@ export class AppComponent implements OnInit {
     this.stockObj = new Stock("Test Stock Co.", "TSC", 85, 80);
   }
 
+  handleToggleFavorite(stock: Stock): void {
+    this.stockObj.favorite = !this.stockObj.favorite;
+    console.log("app-component notified", stock.toString());
+  }
+
 }
