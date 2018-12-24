@@ -3,4 +3,6 @@
   <app-stock-item [stock]="stockObj"
                   (toggleFavorite)="handleToggleFavorite($event)">
   </app-stock-item>
+  <button (click)="changeStockObject()">Change Stock</button>
+  <button (click)="changeStockPrice()">Change Price</button>
 </div>
