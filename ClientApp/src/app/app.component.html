@@ -1,6 +1,6 @@
 <div style='text-align:center'>
   <h1>Welcome to {{title}}</h1>
-  <app-stock-item [stock]="stockObj"
+  <app-stock-item [stock]="stock"
                   (toggleFavorite)="handleToggleFavorite($event)">
   </app-stock-item>
   <button (click)="changeStockObject()">Change Stock</button>

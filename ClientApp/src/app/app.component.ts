@@ -1,4 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import {
+  Component, SimpleChanges, OnInit, OnChanges, OnDestroy,
+  DoCheck, AfterViewChecked, AfterViewInit, AfterContentChecked,
+  AfterContentInit
+} from '@angular/core';
+
 import { Stock } from './model/stock.model';
 
 @Component({
@@ -6,25 +11,45 @@ import { Stock } from './model/stock.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'Stock Market App';
+export class AppComponent implements OnInit, OnChanges, OnDestroy,
+  DoCheck, AfterContentChecked,
+  AfterContentInit, AfterViewChecked,
+  AfterViewInit {
 
-  public stockObj: Stock;
-  private counter: number = 1;
+  title = 'app works!';
 
-  ngOnInit() {
-    //this.stockObj = new Stock("Test Stock Company - " + this.counter++ , "TSC", 85, 80);
-    this.changeStockObject();
+  public stock: Stock;
+
+  onToggleFavorite(stock: Stock) {
+    console.log('Favorite for stock ', stock, ' was triggered');
+    this.stock.favorite = !this.stock.favorite;
   }
 
-  handleToggleFavorite(stock: Stock): void {
-    this.stockObj.favorite = !this.stockObj.favorite;
-    console.log("app-component notified", stock.toString());
+  ngOnInit(): void {
+    this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
+    console.log('App Component - On Init');
   }
 
-  changeStockObject(): void {
-    this.stockObj = new Stock("Test Stock Company - " + this.counter++, "TSC", 85, 80);
+  ngAfterViewInit(): void {
+    console.log('App Component - After View Init');
+  }
+  ngAfterViewChecked(): void {
+    console.log('App Component - After View Checked');
+  }
+  ngAfterContentInit(): void {
+    console.log('App Component - After Content Init');
+  }
+  ngAfterContentChecked(): void {
+    console.log('App Component - After Content Checked');
+  }
+  ngDoCheck(): void {
+    console.log('App Component - Do Check');
+  }
+  ngOnDestroy(): void {
+    console.log('App Component - On Destroy');
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('App Component - On Changes - ', changes);
   }
 
-  changeStockPrice(): void { this.stockObj.price += 10; }
 }
