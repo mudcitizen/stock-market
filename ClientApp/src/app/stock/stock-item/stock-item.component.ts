@@ -13,12 +13,7 @@ import { Stock } from '../../model/stock.model';
   styleUrls: ['./stock-item.component.css']
 })
 
-export class StockItemComponent implements OnInit, OnChanges,
-  OnDestroy, DoCheck,
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit{
+export class StockItemComponent implements OnInit {
 
   @Input() public stock: Stock;
   @Output() private toggleFavorite: EventEmitter<Stock>;
@@ -30,29 +25,8 @@ export class StockItemComponent implements OnInit, OnChanges,
   }
 
   changeStockPrice(): void { this.stock.price += 5; }
+
   ngOnInit(): void {
-    console.log('Stock Item Component - On Init');
-  }
-  ngAfterViewInit(): void {
-    console.log('Stock Item Component - After View Init');
-  }
-  ngAfterViewChecked(): void {
-    console.log('Stock Item Component - After View Checked');
-  }
-  ngAfterContentInit(): void {
-    console.log('Stock Item Component - After Content Init');
-  }
-  ngAfterContentChecked(): void {
-    console.log('Stock Item Component - After Content Checked');
-  }
-  ngDoCheck(): void {
-    console.log('Stock Item Component - Do Check');
-  }
-  ngOnDestroy(): void {
-    console.log('Stock Item Component - On Destroy');
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Stock Item Component - On Changes - ', changes);
   }
 
 }
