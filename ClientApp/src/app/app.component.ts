@@ -1,7 +1,5 @@
 import {
-  Component, SimpleChanges, OnInit, OnChanges, OnDestroy,
-  DoCheck, AfterViewChecked, AfterViewInit, AfterContentChecked,
-  AfterContentInit
+  Component, OnInit, 
 } from '@angular/core';
 
 import { Stock } from './model/stock.model';

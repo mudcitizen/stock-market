@@ -5,14 +5,17 @@ export class Stock {
   constructor(public name: string,
     public code: string,
     public price: number,
-    public previousPrice: number) { }
+    public previousPrice: number,
+    public exchange: string) { }
 
   isPositiveChange(): boolean {
     return this.price >= this.previousPrice;
   }
 
   toString(): string {
-    return `Code: ${this.code} ; Name: ${this.name}; Price: ${this.price} ; PreviousPrice: ${this.previousPrice} ; Favorite: ${this.favorite}`;
+    let s: string = `Code: ${this.code} ; Name: ${this.name}; Price: ${this.price} ; PreviousPrice: ${this.previousPrice} ; Favorite: ${this.favorite}`;
+    s = JSON.stringify(this);
+    return s;
   }
 
 }
